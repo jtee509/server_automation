@@ -23,7 +23,7 @@ Choose an option:
   
   "
       read -r -n 1 -p "Enter your choice: " choice
-    elif ((service_num == 2)); then
+    elif ((choice == 2)); then
       test=774
     fi 
     clear
