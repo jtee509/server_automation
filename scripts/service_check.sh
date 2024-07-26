@@ -23,6 +23,8 @@ Choose an option:
   
   "
       read -r -n 1 -p "Enter your choice: " choice
+    elif ((service_num == 2)); then
+      test=774
     fi 
     clear
 
@@ -83,13 +85,16 @@ Choose an option:
 ++-----------------------------------------------------------------++
 
     "
-                # Pause until 'q' is pressed
-        read -r -n 1 -p "Press 'q' to continue or any other key to quit: " continue_key
-        if [ "$continue_key" != "q" ]; then
-            break
-            clear
+        if ((test == 774));then
+          break
+        else 
+          # Pause until 'q' is pressed
+          read -r -n 1 -p "Press 'q' to continue or any other key to quit: " continue_key
+          if [ "$continue_key" != "q" ]; then
+              break
+              clear
+          fi
         fi
-
         ;;
 
       #Enter 'q' to quit 
@@ -110,17 +115,37 @@ service_exists() {
 }
 
 service_restart()(
-  for service in "${services[@]}"; do
-    if service_exists "$service"; then
-      echo "Restarting $service..."
-      sudo systemctl restart "$service"
-      if [ $? -eq 0 ]; then
-        echo "$service restarted successfully."
-      else
-        echo "Error restarting $service."
-      fi
-    else
-      echo "Service $service not found or not active."
-    fi
+  PS3='Choose services to restart (space-separated numbers, or "a" for all): '
+  select service in "${services[@]}" "All"; do
+    case $service in
+      "All") 
+        for svc in "${services[@]}"; do
+          if service_exists "$svc"; then
+            echo "Restarting $svc..."
+            sudo systemctl restart "$svc"
+            if [ $? -eq 0 ]; then
+              echo "$svc restarted successfully."
+            else
+              echo "Error restarting $svc."
+            fi
+          else
+            echo "Service $svc not found or not active."
+          fi
+        done
+        break ;;  # Exit after restarting all
+      *)
+        if service_exists "$service"; then
+          echo "Restarting $service..."
+          sudo systemctl restart "$service"
+          if [ $? -eq 0 ]; then
+            echo "$service restarted successfully."
+          else
+            echo "Error restarting $service."
+          fi
+        else
+          echo "Service $service not found or not active."
+        fi
+        ;;
+    esac
   done
 )
