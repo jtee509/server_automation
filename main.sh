@@ -5,7 +5,6 @@ source ./scripts/service_check.sh
 source ./scripts/user_management.sh
 source ./scripts/system_info.sh
 source ./scripts/menu.sh
-source ./scripts/logrotation.sh
 
 # Main Script
 while true; do
