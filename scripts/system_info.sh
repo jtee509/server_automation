@@ -87,7 +87,7 @@ memory_usage_report (){
   
   "
 
-  python memory_usage.py
+  python3 memory_usage.py
 
   echo "
   
