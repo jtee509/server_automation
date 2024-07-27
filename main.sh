@@ -30,8 +30,8 @@ Choose the report to output in the server : " selections
 
         case "$selections" in
           1)  
-          check_service_status 
-          break
+            check_service_status 
+            break
           ;;
           2)  analyze_disk_usage ;;
           3)  monitor_cpu_usage ;;
