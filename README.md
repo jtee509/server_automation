@@ -25,23 +25,18 @@ This Python-based utility generates comprehensive system reports and offers basi
 
     * For Debian/Ubuntu
     ```bash
-    sudo apt-get install python3.12 python-pip
+    sudo apt-get install python3.12 python3-psutil
     ``` 
     * For Arch Linux
     ```bash
-    sudo pacman -S python3.12 python-pip
+    sudo pacman -S python3.12 python3-psutil
     ```     
     * For Rocky Linux
     ```bash
-    sudo dnf install python3.12 python-pip
+    sudo dnf install python3.12 python3-psutil
     ``` 
 
-2. **Install Python Packages:**
-    ```bash
-    pip install psutil  # For system resource monitoring
-    ``` 
-
-3. **Grant Execution Permission:**
+2. **Grant Execution Permission:**
     ```bash
     sudo chmod +x main.sh 
     ```
