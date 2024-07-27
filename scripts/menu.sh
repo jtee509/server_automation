@@ -64,6 +64,7 @@ user=(
   "Add New User"
   "Disable User"
   "Delete User"
+  "Modify User"
   "Return to main menu"
 )
 

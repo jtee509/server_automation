@@ -73,7 +73,8 @@ Choose the report to user modification in the server : " selections
         case "$selections" in
           1)  add_user ;;
           2)  disable_user ;;
-          3)  delete_user ;;  
+          3)  delete_user ;;
+          4)  modify_user ;;   
           
           # Exit script on 'q'
           r)  break ;; 
