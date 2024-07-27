@@ -25,15 +25,15 @@ This Python-based utility generates comprehensive system reports and offers basi
 
     * For Debian/Ubuntu
     ```bash
-    sudo apt-get install python3.8
+    sudo apt-get install python3.12 python-pip
     ``` 
     * For Arch Linux
     ```bash
-    sudo pacman -S python3.8
+    sudo pacman -S python3.12 python-pip
     ```     
     * For Rocky Linux
     ```bash
-    sudo dnf install python3.8
+    sudo dnf install python3.12 python-pip
     ``` 
 
 2. **Install Python Packages:**
@@ -43,13 +43,20 @@ This Python-based utility generates comprehensive system reports and offers basi
 
 3. **Grant Execution Permission:**
     ```bash
-    chmod +x main.sh 
+    sudo chmod +x main.sh 
     ```
 
 ## Usage
+There are 2 ways to run it
 
-Run the main script:
+Run the main script (without root functions):
 
 ```bash
 ./main.sh
+```
+
+Run the main script (with root functions):
+
+```bash
+sudo ./main.sh
 ```
