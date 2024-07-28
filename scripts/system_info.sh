@@ -130,7 +130,6 @@ display_root_logins() {
 
 # Script to generate a report of all system statuses
 produce_report_all() {
-  while true; do
     # Check service status and print results
     check_service_status "2"
     echo "=========================================================================="
@@ -157,9 +156,6 @@ produce_report_all() {
     
     echo "Report Generated Succesfully!"
     echo "=========================================================================="
-    
-    clear
-  done
 }
 
 
