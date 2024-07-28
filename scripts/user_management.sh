@@ -109,7 +109,7 @@ delete_user() {
     else
       # Ask for confirmation before deletion
       read -p "Are you sure you want to delete user '$username'? (y/n): " confirm
-      if [ "$confirm" != "y" ]; then
+      if [[ "$confirm" =~ ^[Yy]$ ]]; then
         echo ""
         echo "Deletion canceled."
       fi
@@ -166,7 +166,7 @@ disable_user() {
     elif id "$username" >/dev/null 2>&1; then
       read -p "Are you sure you wish to disable user '$username'? (Y/N): " confirmation
 
-      if [ "$confirmation" == "Y" ]; then
+      if [[ "$confirmation" =~ ^[Yy]$ ]]; then
         passwd -l "$username"
         echo ""
         echo "User '$username' has been disabled."

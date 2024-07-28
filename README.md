@@ -1,4 +1,3 @@
-# server_automation
 # Server Automation
 
 This Python-based utility generates comprehensive system reports and offers basic service management functionality.
